@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Invitation" representedClassName="Invitation" syncable="YES" codeGenerationType="class">
+        <attribute name="invitationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="invitationDescription" optional="YES" attributeType="String"/>
+        <attribute name="invitationLocation" optional="YES" attributeType="String"/>
+        <attribute name="invitationName" optional="YES" attributeType="String"/>
+        <attribute name="invitationTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="titleOfParty" optional="YES" attributeType="String"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="invitation" inverseEntity="Location"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="street" optional="YES" attributeType="String"/>
+        <relationship name="invitation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Invitation" inverseName="location" inverseEntity="Invitation"/>
+        <relationship name="shoppingList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ShoppingList" inverseName="location" inverseEntity="ShoppingList"/>
+    </entity>
+    <entity name="Memo" representedClassName="Memo" syncable="YES" codeGenerationType="class">
+        <attribute name="content" optional="YES" attributeType="String"/>
+        <attribute name="insertDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Menu" representedClassName="Menu" syncable="YES" codeGenerationType="class">
+        <attribute name="menuContent" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ShoppingList" representedClassName="ShoppingList" syncable="YES" codeGenerationType="class">
+        <attribute name="shoppingListCategory" optional="YES" attributeType="String"/>
+        <attribute name="shoppingListDescription" optional="YES" attributeType="String"/>
+        <attribute name="shoppingListName" optional="YES" attributeType="String"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="shoppingList" inverseEntity="Location"/>
+    </entity>
+    <elements>
+        <element name="Invitation" positionX="394.2421875" positionY="77.09765625" width="128" height="148"/>
+        <element name="Location" positionX="174.14453125" positionY="-108.35546875" width="128" height="133"/>
+        <element name="Memo" positionX="80.08203125" positionY="295.5703125" width="128" height="73"/>
+        <element name="Menu" positionX="81.4453125" positionY="191.14453125" width="128" height="58"/>
+        <element name="ShoppingList" positionX="-154.234375" positionY="-33.4453125" width="128" height="103"/>
+    </elements>
+</model>
